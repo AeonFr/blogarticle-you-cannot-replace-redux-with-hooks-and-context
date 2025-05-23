@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export",
-    "prettier": "prettier \"./**/*.(js|ts|md|jsx|tsx|mdx)\" --write"
+    "prettier": "prettier \"./**/*.(js|ts|md|jsx|tsx|mdx)\" --write",
+    "standalone": "webpack serve",
+    "build-standalone": "webpack --mode production"
   },
   "dependencies": {
     "@code-hike/mini-editor": "^0.3.0-next.0",
