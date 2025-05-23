@@ -16,6 +16,7 @@
     "@vanilla-extract/css": "^1.6.3",
     "@vanilla-extract/next-plugin": "^1.0.1",
     "@vanilla-extract/webpack-plugin": "^1.0.3",
+    "babel-loader": "^10.0.0",
     "css-loader": "^6.5.1",
     "debounce": "^1.2.1",
     "fast-myers-diff": "^3.0.1",
