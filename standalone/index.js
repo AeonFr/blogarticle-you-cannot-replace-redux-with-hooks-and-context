@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { MDXProvider } from '@mdx-js/react';
 import BlogPost from '../pages/blog/you-cant-replace-redux-with-hooks-and-context.mdx';
 
@@ -44,6 +44,7 @@ const components = {
   pre: props => <pre {...props} />,
   code: props => <code {...props} />,
   a: props => <a {...props} target="_blank" rel="noopener noreferrer" />,
+  // Add any other components that might be used in the MDX file
 };
 
 const App = () => (
@@ -52,4 +53,6 @@ const App = () => (
   </MDXProvider>
 );
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Use React 18's createRoot API
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);

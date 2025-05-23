@@ -1,16 +1,3 @@
-module.exports = {
-  module: {
-    rules: {
-      test: /\.mdx$/,
-      use: [
-        "babel-loader",
-        {
-          loader: require.resolve('@mdx-js/loader'),
-        },
-      ],
-    }
-  },
-};
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -27,7 +14,15 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ["@babel/preset-env", { "targets": { "browsers": "last 2 versions" } }],
+              ["@babel/preset-react", { "runtime": "automatic" }],
+              "@babel/preset-typescript"
+            ],
+            plugins: ["@vanilla-extract/babel-plugin"]
+          }
         }
       },
       {
