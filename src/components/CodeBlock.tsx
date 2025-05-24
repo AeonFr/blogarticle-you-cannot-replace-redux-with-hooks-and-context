@@ -142,7 +142,7 @@ const Lines = ({
               <div key={key} style={style}>
                 <div className={lineProps.className}>
                   {token.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span {...getTokenProps({ token, key })} key={key} />
                   ))}
                 </div>
               </div>

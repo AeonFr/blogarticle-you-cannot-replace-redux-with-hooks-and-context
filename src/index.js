@@ -1,5 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
+import {Layout} from "./components";
 import BlogPost from './you-cant-replace-redux-with-hooks-and-context.mdx';
 
-ReactDOM.render(<BlogPost />, document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
+
+root.render(<Layout><BlogPost /></Layout>);

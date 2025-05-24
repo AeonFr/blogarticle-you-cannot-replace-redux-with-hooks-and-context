@@ -1,0 +1,2 @@
+// async boundary
+import("./index");

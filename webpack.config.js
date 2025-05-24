@@ -4,7 +4,7 @@ const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack'
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/bootstrap.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[contenthash].js',
@@ -51,6 +51,16 @@ module.exports = {
       exposes: {
         '.': './src/index.microfrontend.tsx',
       },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: '^19.1.0',
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: '^19.1.0',
+        },
+      },
       dts: false,
     }),
   ],
@@ -65,6 +75,11 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
+    },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
     },
     compress: true,
     port: 9000,
