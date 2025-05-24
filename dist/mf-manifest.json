@@ -1,0 +1,89 @@
+{
+  "id": "webpack_provider",
+  "name": "webpack_provider",
+  "metaData": {
+    "name": "webpack_provider",
+    "type": "app",
+    "buildInfo": {
+      "buildVersion": "0.1.0",
+      "buildName": "dev.franciscobrusa.www-next"
+    },
+    "remoteEntry": {
+      "name": "remoteEntry.9def2f56debccb9199e1.js",
+      "path": "",
+      "type": "global"
+    },
+    "types": {
+      "path": "",
+      "name": "",
+      "zip": "",
+      "api": ""
+    },
+    "globalName": "webpack_provider",
+    "pluginVersion": "0.14.0",
+    "prefetchInterface": false,
+    "publicPath": "auto"
+  },
+  "shared": [
+    {
+      "id": "webpack_provider:react-dom",
+      "name": "react-dom",
+      "version": "17.0.2",
+      "singleton": true,
+      "requiredVersion": "^17.0.2",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "bundle.4485cf240c5362609521.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    },
+    {
+      "id": "webpack_provider:react",
+      "name": "react",
+      "version": "17.0.2",
+      "singleton": true,
+      "requiredVersion": "^17.0.2",
+      "assets": {
+        "js": {
+          "async": [],
+          "sync": [
+            "bundle.2c304dcff4ed34ea0be4.js",
+            "bundle.6fc504c62f69c153581b.js"
+          ]
+        },
+        "css": {
+          "async": [],
+          "sync": []
+        }
+      }
+    }
+  ],
+  "remotes": [],
+  "exposes": [
+    {
+      "id": "webpack_provider:.",
+      "name": ".",
+      "assets": {
+        "js": {
+          "sync": [
+            "bundle.2cfc61fe44cac150bd2d.js",
+            "bundle.311d646a53f907641b1d.js"
+          ],
+          "async": []
+        },
+        "css": {
+          "sync": [],
+          "async": []
+        }
+      },
+      "path": "."
+    }
+  ]
+}

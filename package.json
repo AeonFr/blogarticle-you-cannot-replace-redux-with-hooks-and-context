@@ -3,39 +3,43 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "prettier": "prettier \"./**/*.(js|ts|md|jsx|tsx|mdx)\" --write",
-    "standalone": "webpack serve",
-    "build-standalone": "webpack --mode production"
+    "dev": "webpack serve",
+    "build": "webpack build --mode production",
+    "prettier": "prettier \"./**/*.(js|ts|md|jsx|tsx|mdx)\" --write"
   },
   "dependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@babel/preset-typescript": "^7.27.1",
     "@code-hike/mini-editor": "^0.3.0-next.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^2.0.0-rc.1",
-    "@next/mdx": "^12.0.3",
+    "@mdx-js/react": "^1.6.22",
+    "@module-federation/enhanced": "^0.14.0",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react": "^17.0.3",
+    "@types/react-motion": "^0.0.33",
     "@vanilla-extract/babel-plugin": "^1.1.2",
     "@vanilla-extract/css": "^1.6.3",
-    "@vanilla-extract/next-plugin": "^1.0.1",
     "@vanilla-extract/webpack-plugin": "^1.0.3",
     "babel-loader": "^10.0.0",
     "css-loader": "^6.5.1",
     "debounce": "^1.2.1",
     "fast-myers-diff": "^3.0.1",
     "hsluv": "^0.1.0",
+    "html-webpack-plugin": "^5.6.3",
     "multi-integer-range": "^4.0.8",
-    "next": "^12.0.3",
     "prism-react-renderer": "^1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intersection-observer": "^8.31.1",
     "react-motion": "^0.5.2",
-    "react-responsive": "^8.2.0"
-  },
-  "devDependencies": {
-    "@types/lodash-es": "^4.17.6",
-    "@types/react": "^17.0.3",
-    "@types/react-motion": "^0.0.33",
-    "typescript": "^4.4.4"
+    "react-responsive": "^8.2.0",
+    "style-loader": "^4.0.0",
+    "typescript": "^4.4.4",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
   }
 }

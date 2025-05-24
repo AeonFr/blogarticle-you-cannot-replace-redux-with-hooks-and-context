@@ -1,12 +1,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('@module-federation/enhanced/webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './standalone/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[contenthash].js',
+    publicPath: 'auto'
   },
   module: {
     rules: [
@@ -40,9 +42,25 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './standalone/index.html',
+      template: './src/index.html',
       filename: 'index.html'
-    })
+    }),
+    new ModuleFederationPlugin({
+      name: 'webpack_provider',
+      filename: 'remoteEntry.[contenthash].js',
+      exposes: {
+        '.': './src/index.microfrontend.tsx',
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+      },
+      dts: false,
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
