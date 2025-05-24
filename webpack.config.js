@@ -46,7 +46,7 @@ module.exports = {
       filename: 'index.html'
     }),
     new ModuleFederationPlugin({
-      name: 'webpack_provider',
+      name: 'youcantreplacereduxwithcontext',
       filename: 'remoteEntry.[contenthash].js',
       exposes: {
         '.': './src/index.microfrontend.tsx',
