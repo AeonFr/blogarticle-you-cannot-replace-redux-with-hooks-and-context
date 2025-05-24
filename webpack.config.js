@@ -51,14 +51,6 @@ module.exports = {
       exposes: {
         '.': './src/index.microfrontend.tsx',
       },
-      shared: {
-        react: {
-          singleton: true,
-        },
-        'react-dom': {
-          singleton: true,
-        },
-      },
       dts: false,
     }),
   ],
