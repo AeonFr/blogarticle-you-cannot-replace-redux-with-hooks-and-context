@@ -4,7 +4,7 @@
 
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { useEffect, useMemo, useRef } from "react";
-import { TransitionMotion, spring } from "react-motion";
+import { motion } from "motion/react";
 import { lcs } from "fast-myers-diff";
 import "../styles/code-block.css";
 import * as styles from "./styles.css";
@@ -116,41 +116,29 @@ const Lines = ({
   };
 
   return (
-    <TransitionMotion
-      willLeave={() => ({ opacity: spring(0), height: spring(0) })}
-      willEnter={() => ({ opacity: 0, height: 0 })}
-      styles={tokens.map((token, i) => {
-        return {
-          key: tokenSymbols[i],
-          data: token,
-          style: {
-            height: spring(20),
-            opacity: spring(1, { stiffness: 137, damping: 18 }),
-          },
-          index: i,
-        };
-      })}
+    <pre
+      className={className}
+      style={style}
     >
-      {(interpolatedStyles) => (
-        <pre className={className} style={style}>
-          {interpolatedStyles.map(({ key, data: token, style }) => {
-            const lineProps = getRealLineProps(
-              token,
-              tokens.findIndex((t) => t === token)
-            );
-            return (
-              <div key={key} style={style}>
-                <div className={lineProps.className}>
-                  {token.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} key={key} />
-                  ))}
-                </div>
-              </div>
-            );
-          })}
-        </pre>
-      )}
-    </TransitionMotion>
+      {tokens.map((token, i) => {
+        const lineProps = getRealLineProps(token, i);
+
+        return (
+          <motion.div
+            key={`motion-${i}`}
+            initial={{ opacity: 0, height: 0, }}
+            animate={{ opacity: 1, height: 20 }}
+            exit={{ opacity: 0, height: 0 }}
+          >
+            <div className={lineProps.className}>
+              {token.map((token, key) => (
+                <span {...getTokenProps({ token, key })} key={key} />
+              ))}
+            </div>
+          </motion.div>
+        );
+      })}
+    </pre>
   );
 };
 
