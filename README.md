@@ -2,4 +2,8 @@
 
 This repository contains a single article of my blog post, exposed as a micro-frontend.
 
-**Why?** This article in particular includes rich interactions, and to make it possible I used low-level MDX APIs. However with the new version of MDX, all those APIs broke. In order to make the article compile and work under a project using modern MDX, I'd need to rewrite it from scratch. But keeping it in a separate build allows me to load it in my blog without hassle.
+**Why?**
+
+The article includes rich, interactive elements that rely on low-level MDX APIs. These APIs were available in older versions of MDX, but they’ve since changed or been removed in newer versions.
+
+Rather than rewriting the entire article to work with the latest MDX setup, it’s packaged here as its own build. This way, the article can be integrated into the main blog without compatibility issues or major refactoring.
