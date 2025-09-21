@@ -7,6 +7,9 @@
     "build": "webpack build --mode production",
     "prettier": "prettier \"./**/*.(js|ts|md|jsx|tsx|mdx)\" --write"
   },
+  "engines": {
+    "node": "22.x"
+  },
   "dependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
