@@ -6,7 +6,7 @@ import Highlight, { defaultProps } from "prism-react-renderer";
 import { useEffect, useMemo, useRef } from "react";
 import { motion } from "motion/react";
 import { lcs } from "fast-myers-diff";
-import "../styles/code-block.css";
+import codeBlockStyles from "../styles/code-block.css";
 import * as styles from "./styles.css";
 
 type CSymbol = number;
@@ -151,6 +151,14 @@ export default function CodeBlock({
   highlightedLines: number[];
   className?: string;
 }) {
+
+  useEffect(() => {
+    codeBlockStyles.use();
+    return () => {
+      codeBlockStyles.unuse();
+    }
+  }, []);
+  
   const code = children.props.children;
 
   return useMemo(

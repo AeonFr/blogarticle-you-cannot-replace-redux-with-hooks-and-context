@@ -1,7 +1,16 @@
-import "../styles/globals.css";
+import { useEffect } from "react";
+import globalStyles from "../styles/globals.css";
 import * as styles from "./styles.css";
 
 export default function Layout({ children }: any) {
+
+  useEffect(() => {
+    globalStyles.use();
+    return () => {
+      globalStyles.unuse();
+    }
+  }, []);
+
   if (children)
     return (
       <div className={styles.wrapper}>
